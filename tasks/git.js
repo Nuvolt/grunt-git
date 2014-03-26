@@ -17,7 +17,8 @@ module.exports = function (grunt) {
 
         grunt.util.spawn({
             cmd: 'git',
-            args: args
+            args: args,
+            opts: this.spawn_opts || {}
         }, function () {
             callback.apply(this, arguments);
         });
