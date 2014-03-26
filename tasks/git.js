@@ -14,11 +14,12 @@ module.exports = function (grunt) {
     function exec() {
         var args = Array.prototype.slice.call(arguments);
         var callback = args.pop();
+        var spawn_opts = args.pop();
 
         grunt.util.spawn({
             cmd: 'git',
             args: args,
-            opts: this.spawn_opts || {}
+            opts: spawn_opts
         }, function () {
             callback.apply(this, arguments);
         });
